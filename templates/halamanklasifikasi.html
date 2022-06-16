@@ -1,0 +1,42 @@
+{% extends "nav.html" %}
+{% block content %}
+<div class="row">
+
+        <div class="col-4" style="height: 83vh; margin:5%; margin-top:10%; padding-top:2%; padding-left:4%; padding-right:4%; border-radius: 50px;
+        background: #ffffff; display:inline-block; 
+        box-shadow:  20px 20px 60px #d9d9d9,
+                     -20px -20px 60px #ffffff;"  >
+        <center>
+        <table>
+            
+               <form action="/predict" method="post">
+                {% csrf_token %}
+                    <tr>
+                        <td colspan="2"><center><h3>Pytest</h3></center></td>
+                   </tr>
+                    <tr>
+                        <td><center><h5>Masukan Kritik</h5></center></td>
+                        <td ><center><h5>Masukan Saran</h5></center></td> 
+                    </tr>
+                    <tr>
+                        <td><textarea name="kritik" class="form-control" id="kritik" cols="30" rows="10" placeholder="masukan kritik" required></textarea></td>
+                
+                       
+                  
+                        <td><textarea name="saran" class="form-control" id="saran" cols="30" rows="10" placeholder="masukan saran" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" class="btn btn-primary">Cek</button></td>
+                    </tr
+               </form>
+               <tr>
+                    <td>Hasil:<br><b>Kritik<h5 style="color:#0029f9">{{kritik}}</h5></b><b>Saran<h5 style="color:#0029f9">{{saran}}</h5></b></td>
+                </tr>
+            </table>
+        </center>    
+        </div>
+<div class="col-6 mt-5"   style="margin-top:10%">
+   <center> <img src="/static/LOGO.png" alt="" width="70%" style="margin-top:10%"></center>
+</div>
+</div>
+  {% endblock %}

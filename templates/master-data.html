@@ -1,0 +1,46 @@
+{% extends "nav.html" %}
+
+{% block content %}
+
+<div style="margin-top:20%"></div>
+
+<div class="container" style="height:100%">
+    <h2>Case Folding</h2>
+<table class="table">
+    <thead>
+        <th>No</th>
+        <th>teks</th>
+        <th>label</th>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+</div>
+<div class="row container mb-2">
+    <div class="col-9"></div>
+    <div class="col-3">
+       
+    </div>
+</div>
+
+{% endblock %}
+{% block script%}
+<script>
+    $(document).ready(function () {
+        alert('halo');
+        $('.table').DataTable({
+            "processing": true,
+            "serverSide": true,
+            ajax:{
+                   url: '{% url "master" %}',
+                   dataType: 'json',
+               },
+            'columns': [
+            { data: 'teks', name: 'teks' },
+            { data: 'label', name: 'label' },
+            ]
+        });
+    });
+</script>
+{% endblock %}
